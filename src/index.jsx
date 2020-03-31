@@ -27,7 +27,21 @@ class App extends React.Component {
         q: { query },
         limit: 10,
         rating: 'g',
-        fmt: 'https'
+        "fixed_width_small":{
+          "url":"http:\/\/media2.giphy.com\/media\/26tP2R0RSoHylXp6M\/100w.gif",
+          "width":"100",
+          "height":"57",
+          "size":"85222",
+          "mp4":"http:\/\/media2.giphy.com\/media\/26tP2R0RSoHylXp6M\/100w.mp4",
+          "mp4_size":"8882",
+          "webp":"http:\/\/media2.giphy.com\/media\/26tP2R0RSoHylXp6M\/100w.webp",
+          "webp_size":"49462"
+       },
+       "fixed_width_small_still":{
+          "url":"http:\/\/media2.giphy.com\/media\/26tP2R0RSoHylXp6M\/100w_s.gif",
+          "width":"100",
+          "height":"57"
+       }
       }, (err, res) => {
         this.setState({ gifs: res.data });
       });
