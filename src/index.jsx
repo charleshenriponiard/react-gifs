@@ -26,7 +26,8 @@ class App extends React.Component {
       Giphy('hkHNiQ5BuHfbTcdDPeQEgePnjkRn5mXe').search({
         q: { query },
         limit: 10,
-        rating: 'g'
+        rating: 'g',
+        fmt: 'https'
       }, (err, res) => {
         this.setState({ gifs: res.data });
       });
