@@ -9,24 +9,30 @@ import Search from './components/search';
 import '../assets/stylesheets/application.scss';
 
 class App extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
       gifs: [],
       selectedGif: "icD51ZeIerfQHYU6Sg"
-    }
+    };
+  }
+
+  handleGif = (id) => {
+    this.setState({ selectedGif: id });
   }
 
   searchFunction = (query) => {
-    console.log(query);
-    Giphy('hkHNiQ5BuHfbTcdDPeQEgePnjkRn5mXe').search({
-      q: { query },
-      limit: 10,
-      rating: 'g'
-    }, (err, res) => {
-      this.setState({ gifs: res.data });
-    });
+    if (query !== "") {
+      Giphy('hkHNiQ5BuHfbTcdDPeQEgePnjkRn5mXe').search({
+        q: { query },
+        limit: 10,
+        rating: 'g'
+      }, (err, res) => {
+        this.setState({ gifs: res.data });
+      });
+    } else {
+      this.setState({ gifs: [] });
+    }
   }
 
   render() {
@@ -39,7 +45,7 @@ class App extends React.Component {
         </div>
         <div className="right-scene">
           <div className="gif-list">
-            <Giflist gifs={gifs} />
+            <Giflist gifs={gifs} clickedGif={this.handleGif} />
           </div>
         </div>
       </div>
