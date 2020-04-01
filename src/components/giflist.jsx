@@ -4,6 +4,7 @@ import Giphy from './giphy';
 
 class Giflist extends React.Component {
   render() {
+    console.log('xd');
     const { gifs, clickedGif } = this.props;
     return (
       gifs.map((gif) => {
